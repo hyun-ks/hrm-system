@@ -1,0 +1,259 @@
+
+
+ 
+<html>
+<head>
+    <title>사원 목록</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f4f4f4;
+}
+
+.container {
+	width: 80%;
+	margin: auto;
+	overflow: hidden;
+}
+
+header {
+	background: #333;
+	color: #fff;
+	padding-top: 30px;
+	min-height: 70px;
+	border-bottom: #e8491d 3px solid;
+}
+
+aside {
+	background: #333;
+	float: left;
+	width: 150px;
+	margin-top: 50px;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+aside div {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #fff;
+    padding: 10px 2px;
+}
+aside div a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 1.2em;
+}
+
+main {
+	margin-left: 150px;
+	padding: 10px;
+}
+.list {
+	width: auto;
+	margin: auto;
+	margin-top: 30px;
+	background: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+table {
+border: 3px solid;
+border-spacing: 0px;
+    border-color: #2E2E2E;
+    border-radius: 5px;
+text-align: center;
+}
+th, td {
+border: 1px solid;
+height: 50px;
+padding: 10px 5px;
+border-color: #2E2E2E;
+}
+th {
+background: #A4A4A4;
+}
+tr:nth-child(2n+1) {
+background: #E6E6E6;
+}
+    </style>
+</head>
+<body>
+	<header>
+		<div class="user-info" style="float: left; padding-left: 10%;">
+			<span>[개발1팀]</span><span>[현경식님 접속하셨습니다]</span>
+			<a href="/login/logout"><button style="cursor: pointer;">로그아웃</button></a>
+
+		</div>
+		<div class="attendance-buttons" style="float: right; padding-right: 10%;">
+			<a href="/attendance/check?commit=출근"><button style="cursor: pointer;">출근</button></a> 
+			<a href="/attendance/check?commit=퇴근"><button style="cursor: pointer;">퇴근</button></a>
+			
+		</div>
+	</header>
+	<aside>
+			<div><a href="/main">메인 화면</a></div>
+			<div><a href="/board/list">게시판</a></div>
+			<div><a href="/file/list">자료실</a></div>
+     		<div><a href="/attendance/deptread">근태 확인</a></div>
+			<div><a href="/emp/list">사원 목록</a></div>
+			<div><a href="/dept/list">부서 목록</a></div>
+			<div><a href="/emp/insert">사원추가</a></div>
+			<div><a href="/approval/list">전자 결재 시스템</a></div>
+			<div style="border: 0px;"><a href="/info/profile">마이페이지</a></div>
+	</aside>
+
+    
+
+    <main>
+    <div class="list"><div>
+    <h1>사원 목록</h1>
+
+    <table border="1">
+        <tr>
+        	<th>em_photo</th> 
+            <th>userid</th>
+            <th>dept_name</th> 
+            <th>em_name</th>
+            <th>em_birth</th>
+            <th>em_hiredate</th>
+            <th>em_gender</th>
+            <th>em_phone</th>
+            <th>em_address</th>
+            <th>em_detailaddress</th>
+            <th>em_email</th>  
+            <th>em_salary</th>   
+            <th>ranknum</th>
+            <th>vac_no</th>
+        </tr>
+        
+         
+         <tr>
+         	<td style="padding:1px;"> <img src="/upload/C:\pics" alt="사진없음" width="200"></td>
+         	<td> 101</td>
+         	<td> 개발1팀</td>
+       		<td> 현*식</td>
+       		<td>1999년 03월 01일</td>
+       		<td>2023년 03월 01일</td> 
+       		<td> 남</td>
+       		<td> 010-****-1543</td>
+       		<td> 서울 종로구 성균관로 6-4</td>
+       		<td> ***동***호</td>
+       		<td> yh*****@naver.com</td>
+       		<td> 30000000</td>
+       		<td> 1</td>
+       		<td> 15</td>
+       	 </tr>
+         
+         <tr>
+         	<td style="padding:1px;"> <img src="/upload/1708330698209_1.jpg" alt="사진없음" width="200"></td>
+         	<td> 102</td>
+         	<td> 개발1팀</td>
+       		<td> 이*호</td>
+       		<td>1999년 03월 01일</td>
+       		<td>2023년 03월 01일</td> 
+       		<td> 남</td>
+       		<td> 010-****-1543</td>
+       		<td> 서울 종로구 성균관로 6-4</td>
+       		<td> ***동***호</td>
+       		<td> yh*****@naver.com</td>
+       		<td> 30000000</td>
+       		<td> 2</td>
+       		<td> 14</td>
+       	 </tr>
+         
+         <tr>
+         	<td style="padding:1px;"> <img src="/upload/1711952727432_17.PNG" alt="사진없음" width="200"></td>
+         	<td> 103</td>
+         	<td> 개발1팀</td>
+       		<td> 하*수</td>
+       		<td>2000년 05월 06일</td>
+       		<td>2023년 03월 01일</td> 
+       		<td> 남</td>
+       		<td> 010-****-4561</td>
+       		<td> 서울 종로구 종로3길 17</td>
+       		<td> ***동 ***호</td>
+       		<td> dh****@gmail.com</td>
+       		<td> 30000000</td>
+       		<td> 5</td>
+       		<td> 10</td>
+       	 </tr>
+         
+         <tr>
+         	<td style="padding:1px;"> <img src="/upload/1711953882209_19.PNG" alt="사진없음" width="200"></td>
+         	<td> 104</td>
+         	<td> 개발3팀</td>
+       		<td> 김*훈</td>
+       		<td>1996년 05월 03일</td>
+       		<td>2017년 05월 04일</td> 
+       		<td> 남</td>
+       		<td> 010-****-2145</td>
+       		<td> 서울 도봉구 우이천로24길 49</td>
+       		<td> ***동***호</td>
+       		<td> df****@gmail.com</td>
+       		<td> 30000000</td>
+       		<td> 2</td>
+       		<td> 13</td>
+       	 </tr>
+         
+         <tr>
+         	<td style="padding:1px;"> <img src="/upload/1711954431675_27.PNG" alt="사진없음" width="200"></td>
+         	<td> 105</td>
+         	<td> 마케팅2팀</td>
+       		<td> 유*림</td>
+       		<td>2002년 03월 08일</td>
+       		<td>2023년 03월 01일</td> 
+       		<td> 여</td>
+       		<td> 010-****-7821</td>
+       		<td> 도봉구 노해로 213-6</td>
+       		<td> ***동***호</td>
+       		<td> yy*****@naver.com</td>
+       		<td> 40000000</td>
+       		<td> 5</td>
+       		<td> 14</td>
+       	 </tr>
+         
+         <tr>
+         	<td style="padding:1px;"> <img src="/upload/1711954694182_34.PNG" alt="사진없음" width="200"></td>
+         	<td> 106</td>
+         	<td> 개발1팀</td>
+       		<td> 이*지</td>
+       		<td>1999년 05월 29일</td>
+       		<td>2018년 06월 05일</td> 
+       		<td> 여</td>
+       		<td> 010-****-1235</td>
+       		<td> 서울 도봉구 도봉로117길 8</td>
+       		<td> ***동 ***호</td>
+       		<td> dj****@naver.com</td>
+       		<td> 30000000</td>
+       		<td> 4</td>
+       		<td> 19</td>
+       	 </tr>
+         
+         <tr>
+         	<td style="padding:1px;"> <img src="/upload/1711955015210_0.PNG" alt="사진없음" width="200"></td>
+         	<td> 107</td>
+         	<td> 개발1팀</td>
+       		<td> 김*인</td>
+       		<td>2001년 04월 18일</td>
+       		<td>2023년 03월 01일</td> 
+       		<td> 여</td>
+       		<td> 010-****-7894</td>
+       		<td> 서울 도봉구 도봉로117길 11</td>
+       		<td> ***동 ***호</td>
+       		<td> dc**@naver.com</td>
+       		<td> 50000000</td>
+       		<td> 3</td>
+       		<td> 16</td>
+       	 </tr>
+         
+       
+    </table>
+    </div></div>
+    </main>
+</body>
+</html>
