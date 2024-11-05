@@ -25,22 +25,29 @@ public class EmpController {
 	DeptService d;
 	
 	
-	@RequestMapping("/emp/list")
+	@GetMapping("/emp/list")
     public String showEmployeeListForm(Model m) {
 		
 		List<Employee> Employeelist = e.empall();
 		
 		for(Employee maskedInfo : Employeelist) {
-			String maskedName = maskedname(maskedInfo.getEm_name());
+			String maskedName = maskname(maskedInfo.getEm_name());
 			maskedInfo.setEm_name(maskedName);
+			
+			String maskedPhoneNumber = maskPhoneNumber(maskedInfo.getEm_phone());
+			maskedInfo.setEm_phone(maskedPhoneNumber);
+			
+			String maskedemail = maskemail(maskedInfo.getEm_email());
+			maskedInfo.setEm_email(maskedemail);
+			
+			String maskedaddress = maskaddress(maskedInfo.getEm_detailaddress());
+			maskedInfo.setEm_detailaddress(maskedaddress);
 		}
-		
-		System.out.println(Employeelist);
 		m.addAttribute("emp", Employeelist);
         return "/emp/list";
     }
 	
-	public String maskedname(String em_name) {
+	public String maskname(String em_name) {
 		StringBuilder maskedname = new StringBuilder(em_name);
 		
 		if(em_name.length() == 3) {//em_name가 세글자일때
@@ -53,6 +60,38 @@ public class EmpController {
 		return maskedname.toString();
 	}
 	
+	public String maskPhoneNumber(String em_phone) {
+		StringBuilder maskedPhoneNumber = new StringBuilder(em_phone);
+		
+		if(em_phone.contains("-")) {
+			String[] parts = em_phone.split("-");
+			maskedPhoneNumber = new StringBuilder(parts[0] + "-" + "****" + "-" + parts[2]);
+		}
+		
+		return maskedPhoneNumber.toString();
+	}
+	
+	public String maskemail(String em_email) {
+		if(em_email == null || !em_email.contains("@")) {
+			return em_email;
+		}
+			String[] parts = em_email.split("@");
+			String idPart = parts[0];
+			String domainPart = parts[1];
+		
+			String maskedid = idPart.replaceAll("(?<=.{2}).", "*");
+			
+			return maskedid + "@" + domainPart;
+	}
+	
+	public String maskaddress(String em_detailaddress) {
+		if(em_detailaddress == null) {
+			return em_detailaddress;
+		}
+		
+		String maskedaddress = em_detailaddress.replaceAll("\\d", "*");
+		return maskedaddress.toString();
+	}
 	
 	
 	@GetMapping("/emp/insert")
